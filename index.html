@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Olympic Gym | No es un gym. Es tu próximo nivel.</title>
+    <meta name="description" content="New Olympic Gym en San Luis. Entrená de verdad con Pilates Reformer, Cardio, Musculación y Full Body. El único límite está en tu mente. Rompelo.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dorado: #f9b340;
+            --dorado-claro: #eeb04d;
+            --gris-oscuro: #545454;
+            --gris-claro: #d3d3d1;
+            --blanco: #ffffff;
+            --negro: #1a1a1a;
+            --negro-profundo: #0d0d0d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--blanco);
+            line-height: 1.6;
+            font-weight: 400;
+            overflow-x: hidden;
+            background: var(--negro-profundo);
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 1.5rem 0;
+        }
+
+        .navbar.transparent {
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(41, 41, 41, 0.98);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 3rem;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            z-index: 1002;
+        }
+
+        .logo-gym {
+            font-size: 2rem;
+            color: var(--blanco);
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 3px;
+        }
+
+        .logo-gym .highlight {
+            color: var(--dorado);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--blanco);
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--dorado);
+        }
+
+        .nav-btn {
+            background: var(--dorado);
+            color: #292929;
+            padding: 0.9rem 2rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--dorado-claro);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--blanco);
+            font-size: 1.8rem;
+            cursor: pointer;
+            position: relative;
+            z-index: 1002;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(41, 41, 41, 0.85) 0%, rgba(13, 13, 13, 0.9) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(249, 179, 64, 0.2);
+            border-left: 4px solid var(--dorado);
+            color: var(--dorado);
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 7rem;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 .gold {
+            color: var(--dorado);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--gris-claro);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--dorado);
+            color: #292929;
+            padding: 1.3rem 3rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--dorado-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(249, 179, 64, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blanco);
+            padding: 1.3rem 3rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--blanco);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--blanco);
+            color: #292929;
+        }
+
+        /* PROMO BANNER */
+        .promo-banner {
+            background: linear-gradient(90deg, var(--dorado) 0%, var(--dorado-claro) 100%);
+            padding: 2rem 3rem;
+            text-align: center;
+        }
+
+        .promo-banner h3 {
+            font-size: 1.8rem;
+            color: #292929;
+            margin-bottom: 0.5rem;
+        }
+
+        .promo-banner p {
+            color: #292929;
+            font-size: 1.1rem;
+        }
+
+        /* ACTIVIDADES */
+        .actividades {
+            padding: 8rem 3rem;
+            background: var(--negro);
+            position: relative;
+        }
+
+        .actividades::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover;
+            background-attachment: fixed;
+            z-index: 0;
+            filter: grayscale(100%);
+        }
+
+        .actividades::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(27, 27, 27, 0.92);
+            z-index: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-tag {
+            color: var(--dorado);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--gris-claro);
+            font-weight: 300;
+        }
+
+        .actividades-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .actividad-item {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--negro);
+            border: 2px solid rgba(249, 179, 64, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .actividad-item:hover {
+            border-color: var(--dorado);
+            transform: translateY(-5px);
+        }
+
+        .actividad-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(27, 27, 27, 0.75) 0%, rgba(27, 27, 27, 0.85) 100%);
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .actividad-item:hover::before {
+            background: linear-gradient(135deg, rgba(27, 27, 27, 0.65) 0%, rgba(249, 179, 64, 0.3) 100%);
+        }
+
+        .actividad-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(100%);
+        }
+
+        .actividad-item:hover .actividad-bg {
+            transform: scale(1.1);
+        }
+
+        .actividad-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 3rem;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .actividad-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .actividad-icon {
+            font-size: 3.5rem;
+            color: var(--dorado);
+            transition: transform 0.4s ease;
+        }
+
+        .actividad-item:hover .actividad-icon {
+            transform: scale(1.1);
+        }
+
+        .actividad-number {
+            font-size: 5rem;
+            font-weight: 700;
+            color: rgba(249, 179, 64, 0.15);
+            font-family: 'Bebas Neue', sans-serif;
+            line-height: 1;
+        }
+
+        .actividad-bottom h3 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .actividad-bottom p {
+            font-size: 1.05rem;
+            color: var(--gris-claro);
+            line-height: 1.6;
+        }
+
+        /* PROMOCIONES */
+        .planes {
+            padding: 8rem 3rem;
+            background: var(--negro-profundo);
+            position: relative;
+        }
+
+        .planes::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover;
+            background-attachment: fixed;
+            z-index: 0;
+            filter: grayscale(100%);
+        }
+
+        .planes::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(27, 27, 27, 0.92);
+            z-index: 0;
+        }
+
+        .planes-grid {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .plan-card {
+            background: var(--negro);
+            border: 2px solid rgba(249, 179, 64, 0.3);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--dorado) 0%, var(--dorado-claro) 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .plan-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .plan-card:hover {
+            border-color: var(--dorado);
+            transform: translateY(-10px);
+        }
+
+        .plan-badge {
+            display: inline-block;
+            background: var(--dorado);
+            color: #292929;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+        }
+
+        .plan-card h3 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 1.3rem;
+            color: var(--gris-claro);
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+
+        .plan-features li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(249, 179, 64, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .plan-features li i {
+            color: var(--dorado);
+            font-size: 1.2rem;
+        }
+
+        .plan-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--dorado);
+            padding: 1.2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--dorado);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .plan-btn:hover {
+            background: var(--dorado);
+            color: #292929;
+        }
+
+        /* GALERIA */
+        .galeria {
+            padding: 8rem 3rem;
+            background: var(--negro);
+        }
+
+        .galeria-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .galeria-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(100%);
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(249, 179, 64, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 2rem;
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            opacity: 1;
+        }
+
+        .galeria-overlay i {
+            font-size: 3rem;
+            color: #292929;
+            margin-bottom: 1rem;
+        }
+
+        .galeria-overlay h4 {
+            font-size: 1.5rem;
+            color: #292929;
+            text-align: center;
+        }
+
+        /* HORARIOS */
+        .horarios {
+            padding: 8rem 3rem;
+            background: var(--negro-profundo);
+            position: relative;
+        }
+
+        .horarios::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80') center/cover;
+            z-index: 0;
+            filter: grayscale(100%);
+        }
+
+        .horarios::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(27, 27, 27, 0.9);
+            z-index: 0;
+        }
+
+        .horarios-content {
+            max-width: 1000px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .horario-box {
+            background: var(--negro);
+            border-left: 5px solid var(--dorado);
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .horario-box h3 {
+            font-size: 2.5rem;
+            color: var(--dorado);
+            margin-bottom: 2rem;
+        }
+
+        .horario-time {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .horario-time i {
+            color: var(--dorado);
+        }
+
+        /* CONTACTO */
+        .contacto {
+            padding: 8rem 3rem;
+            background: var(--negro);
+            position: relative;
+        }
+
+        .contacto::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1600&q=80') center/cover;
+            z-index: 0;
+            filter: grayscale(100%);
+        }
+
+        .contacto::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(27, 27, 27, 0.9);
+            z-index: 0;
+        }
+
+        .contacto-content {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contacto-info h3 {
+            font-size: 2.5rem;
+            color: var(--dorado);
+            margin-bottom: 2rem;
+        }
+
+        .contacto-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .contacto-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contacto-item i {
+            color: var(--dorado);
+            font-size: 1.5rem;
+        }
+
+        .contacto-item p,
+        .contacto-item a {
+            color: var(--gris-claro);
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contacto-item a:hover {
+            color: var(--dorado);
+        }
+
+        .contacto-map {
+            background: rgba(26, 26, 26, 0.5);
+            border: 2px solid rgba(249, 179, 64, 0.3);
+            height: 100%;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .contacto-map iframe {
+            filter: grayscale(100%) invert(92%) contrast(83%);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-claro) 100%);
+            padding: 6rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover;
+            z-index: 0;
+            filter: grayscale(100%);
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(249, 179, 64, 0.97) 0%, rgba(238, 176, 77, 0.97) 100%);
+            z-index: 0;
+        }
+
+        .cta-section h2 {
+            font-size: 4.5rem;
+            color: #292929;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: #292929;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            background: #292929;
+            color: var(--dorado);
+            padding: 1.5rem 4rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(13, 13, 13, 0.4);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #292929;
+            padding: 4rem 3rem 2rem;
+            border-top: 2px solid rgba(249, 179, 64, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-about h3 {
+            font-size: 2rem;
+            color: var(--dorado);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-about p {
+            color: var(--gris-claro);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: var(--dorado);
+            border: 2px solid var(--dorado);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #292929;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: transparent;
+            color: var(--dorado);
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            color: var(--blanco);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section a {
+            display: block;
+            color: var(--gris-claro);
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--dorado);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(249, 179, 64, 0.1);
+            color: var(--gris-oscuro);
+        }
+
+        .footer-bottom a {
+            color: var(--dorado);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .actividades-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .planes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background: #292929;
+                width: 100%;
+                height: 100vh;
+                justify-content: center;
+                transition: left 0.3s ease;
+                gap: 2rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .logo-wrapper {
+                margin: 0 auto;
+            }
+
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .actividades-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .horarios-content,
+            .contacto-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contacto-info {
+                text-align: center;
+            }
+
+            .contacto-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contacto-item h4 {
+                justify-content: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .cta-section h2 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar transparent">
+        <div class="nav-container">
+            <a href="#inicio" class="logo-wrapper">
+                <div class="logo-gym">NEW <span class="highlight">OLYMPIC</span> GYM</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#actividades">Actividades</a></li>
+                <li><a href="#planes">Promociones</a></li>
+                <li><a href="#galeria">Instalaciones</a></li>
+                <li><a href="#horarios">Horarios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><button class="nav-btn" onclick="window.open('https://wa.me/5492664552137', '_blank')"><i class="fab fa-whatsapp"></i> CONSULTAR</button></li>
+            </ul>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-tag"><i class="fas fa-fire"></i> ENTRENÁ, DISFRUTÁ Y SENTITE PARTE.</div>
+            <h1>
+                EL ÚNICO LÍMITE<br>
+                ESTÁ EN TU MENTE.<br>
+                <span class="gold">ROMPELO.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Pilates Reformer · Cardio · Musculación · Full Body<br>
+                Dejás las excusas, activás el cuerpo y empezás hoy.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="window.open('https://wa.me/5492664552137', '_blank')">
+                    <i class="fab fa-whatsapp"></i> EMPEZAR AHORA
+                </button>
+                <button class="btn-secondary" onclick="document.getElementById('actividades').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-dumbbell"></i> VER ACTIVIDADES
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <div class="promo-banner">
+        <h3>PROMO PILATES REFORMER - DICIEMBRE</h3>
+        <p><i class="fas fa-bolt"></i> Vienen dos: Uno paga 100%, el otro 50% · Válido hasta 15/01/2025</p>
+    </div>
+
+    <!-- ACTIVIDADES -->
+    <section class="actividades" id="actividades">
+        <div class="section-header">
+            <span class="section-tag">NUESTRAS ACTIVIDADES</span>
+            <h2 class="section-title">ENTRENÁ TODO LO QUE TU CUERPO NECESITA</h2>
+            <p class="section-subtitle">Musculación, Pilates Reformer, Cardio y Full Body. El cambio empieza cuando te animás a dar el primer paso.</p>
+        </div>
+        <div class="actividades-grid">
+            <div class="actividad-item">
+                <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&q=80" alt="Pilates Reformer" class="actividad-bg">
+                <div class="actividad-content">
+                    <div class="actividad-top">
+                        <div class="actividad-icon"><i class="fas fa-spa"></i></div>
+                        <div class="actividad-number">01</div>
+                    </div>
+                    <div class="actividad-bottom">
+                        <h3>PILATES REFORMER</h3>
+                        <p>Mente y cuerpo en equilibrio. Trabajá tu postura, flexibilidad y fuerza con equipamiento profesional de última generación.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="actividad-item">
+                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80" alt="Cardio" class="actividad-bg">
+                <div class="actividad-content">
+                    <div class="actividad-top">
+                        <div class="actividad-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div class="actividad-number">02</div>
+                    </div>
+                    <div class="actividad-bottom">
+                        <h3>CARDIO</h3>
+                        <p>Quemá calorías, mejorá tu resistencia y sentite con más energía. Tu corazón te lo va a agradecer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="actividad-item">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Musculación" class="actividad-bg">
+                <div class="actividad-content">
+                    <div class="actividad-top">
+                        <div class="actividad-icon"><i class="fas fa-dumbbell"></i></div>
+                        <div class="actividad-number">03</div>
+                    </div>
+                    <div class="actividad-bottom">
+                        <h3>MUSCULACIÓN</h3>
+                        <p>Desarrollá músculo, aumentá tu fuerza y transformá tu físico con el mejor equipamiento disponible.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="actividad-item">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80" alt="Full Body" class="actividad-bg">
+                <div class="actividad-content">
+                    <div class="actividad-top">
+                        <div class="actividad-icon"><i class="fas fa-fire"></i></div>
+                        <div class="actividad-number">04</div>
+                    </div>
+                    <div class="actividad-bottom">
+                        <h3>FULL BODY</h3>
+                        <p>Entrenamiento completo que combina fuerza, resistencia y movilidad. Todo cambia cuando entrás todo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMOCIONES -->
+    <section class="planes" id="planes">
+        <div class="section-header">
+            <span class="section-tag">PROMOCIONES VIGENTES</span>
+            <h2 class="section-title">APROVECHÁ NUESTRAS PROMOS</h2>
+            <p class="section-subtitle">Promociones especiales por tiempo limitado. Consultá por WhatsApp para más información.</p>
+        </div>
+        <div class="planes-grid">
+            <div class="plan-card">
+                <div class="plan-badge">PROMO FIN DE AÑO</div>
+                <h3>FIN DE AÑO</h3>
+                <p class="plan-price">Oferta válida hasta 31/12/2024</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Si pagás 2 meses juntos:</li>
+                    <li><i class="fas fa-check"></i> 1° mes al 100%</li>
+                    <li><i class="fas fa-check"></i> 2° mes al 50%</li>
+                    <li><i class="fas fa-check"></i> Acceso a todas las actividades</li>
+                    <li><i class="fas fa-check"></i> Sin permanencia mínima</li>
+                </ul>
+                <button class="plan-btn" onclick="window.open('https://wa.me/5492664552137?text=Hola! Quiero consultar por la Promo Fin de Año', '_blank')">CONSULTAR PROMO</button>
+            </div>
+            <div class="plan-card">
+                <div class="plan-badge">PROMO PILATES</div>
+                <h3>PILATES DUO</h3>
+                <p class="plan-price">Vienen dos: Uno paga 100%, el otro 50%</p>
+                <ul class="plan-features">
+                    <li><i class="fas fa-check"></i> Promo exclusiva para Pilates Reformer</li>
+                    <li><i class="fas fa-check"></i> Reformer de última generación</li>
+                    <li><i class="fas fa-check"></i> Clases personalizadas</li>
+                    <li><i class="fas fa-check"></i> Horarios flexibles</li>
+                    <li><i class="fas fa-check"></i> Válido hasta 15/01/2025</li>
+                </ul>
+                <button class="plan-btn" onclick="window.open('https://wa.me/5492664552137?text=Hola! Quiero consultar por la Promo Pilates Duo', '_blank')">CONSULTAR PROMO</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="galeria" id="galeria">
+        <div class="galeria-header">
+            <span class="section-tag">NUESTRAS INSTALACIONES</span>
+            <h2 class="section-title">CONOCÉ NUESTRO ESPACIO</h2>
+            <p class="section-subtitle">Equipamiento de primer nivel en un ambiente diseñado para tu progreso.</p>
+        </div>
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&q=80" alt="Área de Musculación">
+                <div class="galeria-overlay">
+                    <i class="fas fa-dumbbell"></i>
+                    <h4>ÁREA DE MUSCULACIÓN</h4>
+                </div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Zona de Peso Libre">
+                <div class="galeria-overlay">
+                    <i class="fas fa-dumbbell"></i>
+                    <h4>ZONA DE PESO LIBRE</h4>
+                </div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80" alt="Equipos Cardio">
+                <div class="galeria-overlay">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>EQUIPOS CARDIO</h4>
+                </div>
+            </div>
+            <div class="galeria-item">
+                <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&q=80" alt="Sala Pilates">
+                <div class="galeria-overlay">
+                    <i class="fas fa-spa"></i>
+                    <h4>SALA PILATES REFORMER</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIOS -->
+    <section class="horarios" id="horarios">
+        <div class="section-header">
+            <span class="section-tag">HORARIOS</span>
+            <h2 class="section-title">ENTRENAMOS CUANDO VOS PODÉS</h2>
+            <p class="section-subtitle">Horarios amplios para que no tengas excusas. Tu momento es ahora.</p>
+        </div>
+        <div class="horarios-content">
+            <div class="horario-box">
+                <h3>LUNES A VIERNES</h3>
+                <div class="horario-time"><i class="far fa-clock"></i> 08:00 - 12:00 hs</div>
+                <div class="horario-time"><i class="far fa-clock"></i> 14:00 - 23:00 hs</div>
+            </div>
+            <div class="horario-box">
+                <h3>SÁBADOS</h3>
+                <div class="horario-time"><i class="far fa-clock"></i> 09:00 - 13:00 hs</div>
+                <div class="horario-time"><i class="far fa-clock"></i> 14:00 - 18:00 hs</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+        <div class="section-header">
+            <span class="section-tag">CONTACTO</span>
+            <h2 class="section-title">CONECTATE CON NOSOTROS</h2>
+            <p class="section-subtitle">Estamos para ayudarte a dar el primer paso. Consultanos por WhatsApp.</p>
+        </div>
+        <div class="contacto-content">
+            <div class="contacto-info">
+                <h3>INFORMACIÓN DE CONTACTO</h3>
+                <div class="contacto-item">
+                    <h4><i class="fas fa-map-marker-alt"></i> UBICACIÓN</h4>
+                    <p>Maipú 1059, San Luis<br>San Luis, Argentina</p>
+                </div>
+                <div class="contacto-item">
+                    <h4><i class="fab fa-whatsapp"></i> WHATSAPP</h4>
+                    <p>
+                        <a href="https://wa.me/5492664552137" target="_blank">2664 552137</a><br>
+                        <a href="https://wa.me/5492664336640" target="_blank">2664 336640</a>
+                    </p>
+                </div>
+                <div class="contacto-item">
+                    <h4><i class="fab fa-instagram"></i> REDES SOCIALES</h4>
+                    <p>
+                        <a href="https://instagram.com/newolympicgym" target="_blank">@newolympicgym</a>
+                    </p>
+                </div>
+            </div>
+            <div class="contacto-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3361.9282736987897!2d-66.34050892346795!3d-33.29974397341611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d43957bb2e7d55%3A0x8f8b8b8b8b8b8b8b!2sMaip%C3%BA%201059%2C%20D5700%20San%20Luis!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2>¿LISTO PARA EMPEZAR?</h2>
+        <p>No esperes más. El único límite está en tu mente. Consultanos por WhatsApp y empezá hoy mismo.</p>
+        <button class="cta-btn" onclick="window.open('https://wa.me/5492664552137', '_blank')">
+            <i class="fab fa-whatsapp"></i> CONTACTAR AHORA
+        </button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>NEW OLYMPIC GYM</h3>
+                <p>Centro de desarrollo físico en San Luis. Pilates Reformer, Cardio, Musculación y Full Body. El único límite está en tu mente. Rompelo.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/newolympicgym" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5492664552137" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/newolympicgym" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>ACTIVIDADES</h4>
+                <a href="#actividades">Pilates Reformer</a>
+                <a href="#actividades">Cardio</a>
+                <a href="#actividades">Musculación</a>
+                <a href="#actividades">Full Body</a>
+            </div>
+            <div class="footer-section">
+                <h4>ENLACES</h4>
+                <a href="#inicio">Inicio</a>
+                <a href="#planes">Promociones</a>
+                <a href="#galeria">Instalaciones</a>
+                <a href="#horarios">Horarios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h4>CONTACTO</h4>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Maipú 1059, San Luis</a>
+                <a href="https://wa.me/5492664552137" target="_blank"><i class="fab fa-whatsapp"></i> 2664 552137</a>
+                <a href="https://instagram.com/newolympicgym" target="_blank"><i class="fab fa-instagram"></i> @newolympicgym</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 New Olympic Gym. Todos los derechos reservados. | Diseñado por <a href="#">sageDev</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                navbar.classList.remove('transparent');
+            } else {
+                navbar.classList.add('transparent');
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
