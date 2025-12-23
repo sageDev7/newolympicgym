@@ -450,6 +450,126 @@
             position: relative;
         }
 
+        /* EXPLORA MÁS */
+        .explora-mas {
+            padding: 6rem 3rem;
+            background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-claro) 100%);
+            position: relative;
+        }
+
+        .explora-mas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover;
+            opacity: 0.08;
+            z-index: 0;
+            filter: grayscale(100%);
+        }
+
+        .explora-mas::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(249, 179, 64, 0.40) 0%, rgba(238, 176, 77, 0.40) 100%);
+            z-index: 0;
+        }
+
+        .explora-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .explora-item {
+            background: var(--negro);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 2px solid rgba(41, 41, 41, 0.6);
+            transition: all 0.4s ease;
+        }
+
+        .explora-item:hover {
+            border-color: #292929;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(41, 41, 41, 0.5);
+        }
+
+        .explora-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(249, 179, 64, 0.1);
+            border: 2px solid var(--dorado);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .explora-item:hover .explora-icon {
+            background: var(--dorado);
+            transform: rotate(360deg);
+        }
+
+        .explora-icon i {
+            font-size: 2.5rem;
+            color: var(--dorado);
+            transition: color 0.4s ease;
+        }
+
+        .explora-item:hover .explora-icon i {
+            color: #292929;
+        }
+
+        .explora-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blanco);
+        }
+
+        .explora-item p {
+            font-size: 0.95rem;
+            color: var(--gris-claro);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .explora-link {
+            color: var(--dorado);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .explora-link:hover {
+            gap: 1rem;
+        }
+
+        .explora-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .explora-link:hover i {
+            transform: translateX(5px);
+        }
+
         .planes::before {
             content: '';
             position: absolute;
@@ -966,6 +1086,10 @@
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
+
+            .explora-content {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1024,6 +1148,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .explora-content {
+                grid-template-columns: 1fr;
+            }
+
             .contacto-info {
                 text-align: center;
             }
@@ -1071,6 +1199,141 @@
                 font-size: 2.5rem;
             }
         }
+
+        @media (max-width: 414px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .hero {
+                padding: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-tag {
+                font-size: 0.75rem;
+                padding: 0.6rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .actividad-item {
+                height: 300px;
+            }
+
+            .actividad-content {
+                padding: 2rem;
+            }
+
+            .actividad-bottom h3 {
+                font-size: 2.2rem;
+            }
+
+            .actividad-bottom p {
+                font-size: 0.95rem;
+            }
+
+            .actividad-number {
+                font-size: 4rem;
+            }
+
+            .plan-card {
+                padding: 2rem;
+            }
+
+            .plan-card h3 {
+                font-size: 2.5rem;
+            }
+
+            .horario-box {
+                padding: 2rem;
+            }
+
+            .horario-day {
+                font-size: 1.3rem;
+            }
+
+            .horario-time {
+                font-size: 1.1rem;
+            }
+
+            .contacto-item {
+                margin-bottom: 2rem;
+            }
+
+            .contacto-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .cta-section p {
+                font-size: 1.1rem;
+            }
+
+            .cta-btn {
+                padding: 1.2rem 2.5rem;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .explora-item {
+                padding: 2rem 1.5rem;
+            }
+
+            .explora-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .explora-icon i {
+                font-size: 2rem;
+            }
+
+            .explora-item h3 {
+                font-size: 1.1rem;
+            }
+
+            .galeria-item {
+                height: 300px;
+            }
+
+            .galeria-overlay h4 {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                padding: 0 1rem;
+            }
+
+            .promo-banner {
+                padding: 1.5rem 1.5rem;
+            }
+
+            .promo-banner h3 {
+                font-size: 1.4rem;
+            }
+
+            .promo-banner p {
+                font-size: 0.95rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1084,7 +1347,8 @@
                 <li><a href="#actividades">Actividades</a></li>
                 <li><a href="#planes">Promociones</a></li>
                 <li><a href="#galeria">Instalaciones</a></li>
-                <li><a href="#horarios">Horarios</a></li>
+                <li><a href="entrenadores.html">Entrenadores</a></li>
+                <li><a href="faq.html">FAQ</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <li><button class="nav-btn" onclick="window.open('https://wa.me/5492664552137', '_blank')"><i class="fab fa-whatsapp"></i> CONSULTAR</button></li>
             </ul>
@@ -1185,6 +1449,36 @@
                         <p>Entrenamiento completo que combina fuerza, resistencia y movilidad. Todo cambia cuando entrás todo.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPLORÁ MÁS -->
+    <section class="explora-mas">
+        <div class="explora-content">
+            <div class="explora-item">
+                <div class="explora-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>HORARIOS Y CLASES</h3>
+                <p>Consultá nuestros horarios y encontrá la clase perfecta para tu rutina.</p>
+                <a href="#horarios" class="explora-link">VER HORARIOS <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="explora-item">
+                <div class="explora-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>NUESTROS ENTRENADORES</h3>
+                <p>Conocé al equipo de profesionales que te acompañará en tu transformación.</p>
+                <a href="entrenadores.html" class="explora-link">CONOCER EQUIPO <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="explora-item">
+                <div class="explora-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h3>PREGUNTAS FRECUENTES</h3>
+                <p>Resolvé todas tus dudas sobre membresías, clases y servicios.</p>
+                <a href="faq.html" class="explora-link">VER FAQ <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -1361,7 +1655,8 @@
                 <a href="#inicio">Inicio</a>
                 <a href="#planes">Promociones</a>
                 <a href="#galeria">Instalaciones</a>
-                <a href="#horarios">Horarios</a>
+                <a href="entrenadores.html">Entrenadores</a>
+                <a href="faq.html">Preguntas Frecuentes</a>
                 <a href="#contacto">Contacto</a>
             </div>
             <div class="footer-section">
