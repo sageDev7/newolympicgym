@@ -83,6 +83,16 @@
             z-index: 1002;
         }
 
+        .logo-image {
+            height: 65px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
         .logo-gym {
             font-size: 2rem;
             color: var(--blanco);
@@ -1012,6 +1022,12 @@
             margin-bottom: 1.5rem;
         }
 
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            margin-bottom: 1.5rem;
+        }
+
         .footer-about p {
             color: var(--gris-claro);
             line-height: 1.8;
@@ -1207,6 +1223,21 @@
 
             .hero {
                 padding: 1.5rem;
+                padding-top: 10rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-tag {
+                margin: 0 auto 2rem;
             }
 
             .hero h1 {
@@ -1220,6 +1251,12 @@
             .hero-tag {
                 font-size: 0.75rem;
                 padding: 0.6rem 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
             }
 
             .section-title {
@@ -1341,7 +1378,7 @@
     <nav class="navbar transparent">
         <div class="nav-container">
             <a href="#inicio" class="logo-wrapper">
-                <div class="logo-gym">NEW <span class="highlight">OLYMPIC</span> GYM</div>
+                <img src="logo.png" alt="New Olympic Gym" class="logo-image">
             </a>
             <ul class="nav-menu">
                 <li><a href="#actividades">Actividades</a></li>
@@ -1635,7 +1672,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-about">
-                <h3>NEW OLYMPIC GYM</h3>
+                <img src="logo.png" alt="New Olympic Gym" class="footer-logo">
                 <p>Centro de desarrollo físico en San Luis. Pilates Reformer, Cardio, Musculación y Full Body. El único límite está en tu mente. Rompelo.</p>
                 <div class="social-links">
                     <a href="https://instagram.com/newolympicgym" target="_blank"><i class="fab fa-instagram"></i></a>
